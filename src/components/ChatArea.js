@@ -7,8 +7,12 @@ import {
   Input,
   Text,
   Divider,
+  InputGroup,
+  InputRightElement,
+  ButtonGroup,
 } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
+import { IoSend } from "react-icons/io5";
 import { useState, useEffect, Fragment } from "react";
 
 const Topbar = () => {
@@ -44,14 +48,27 @@ const Topbar = () => {
 const Bottombar = () => {
   return (
     <FormControl p={3}>
-      <Input
-        placeholder="Type a message ...."
-        autoComplete="off"
-        bgColor="#FFFFFF"
-      />
-      <Button type="submit" hidden>
-        Submit
-      </Button>
+      <InputGroup>
+        <Input
+          placeholder="Type a message ...."
+          autoComplete="off"
+          bgColor="#FFFFFF"
+        ></Input>
+        <InputRightElement  mr={6}>
+          {/* <Button variant="link">
+            <IoSend />
+          </Button> */}
+          <ButtonGroup size='sm' isAttached>
+            <Button variant="link">
+            <IoSend />
+          </Button>
+            <Button variant="link">
+            <IoSend />
+          </Button>
+            
+          </ButtonGroup>
+        </InputRightElement>
+      </InputGroup>
     </FormControl>
   );
 };
@@ -66,10 +83,9 @@ const ChatSender = (props) => {
         p={3}
         m={3}
         ml={0}
-
         alignSelf="start"
       >
-        <Text >{props.chats[0].message}</Text>
+        <Text>{props.chats[0].message}</Text>
       </Flex>
     </>
   );
@@ -83,9 +99,8 @@ const ChatReceiver = (props) => {
         minWidth={50}
         borderRadius="lg"
         p={3}
-        m={3}
+        ml={10}
         mr={0}
-        
         alignSelf="end"
       >
         <Text color="#FFFFFF">{props.chats[0].message}</Text>
