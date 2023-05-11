@@ -61,14 +61,15 @@ const ChatSender = (props) => {
       <Flex
         bg="#FFFFFF"
         w="fit-content"
-        minWidth={40}
+        minWidth={50}
         borderRadius="lg"
         p={3}
         m={3}
+        ml={0}
 
         alignSelf="start"
       >
-        <Text>{props.chats[0].message}</Text>
+        <Text >{props.chats[0].message}</Text>
       </Flex>
     </>
   );
@@ -77,16 +78,17 @@ const ChatReceiver = (props) => {
   return (
     <>
       <Flex
-        bg="#FFFFFF"
+        bg="#1C63D5"
         w="fit-content"
         minWidth={50}
         borderRadius="lg"
         p={3}
         m={3}
+        mr={0}
         
         alignSelf="end"
       >
-        <Text>{props.chats[0].message}</Text>
+        <Text color="#FFFFFF">{props.chats[0].message}</Text>
       </Flex>
     </>
   );
