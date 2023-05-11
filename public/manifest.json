@@ -3,7 +3,7 @@
   "short_name": "Project",
   "theme_color": "black",
   "background_color": "black",
-  "display": "browser",
+  "display": "standalone",
   "scope": "/",
   "start_url": "/",
   "icons":[

@@ -1,8 +1,11 @@
-import './App.css';
+import ChatArea from "./components/ChatArea";
+
 
 function App() {
   return (
-    <div >Test</div>
+    <div>
+      <ChatArea/>
+    </div>
   );
 }
 
