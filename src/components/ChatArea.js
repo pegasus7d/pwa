@@ -58,10 +58,10 @@ const Bottombar = () => {
         <InputRightElement mr={6}>
           <ButtonGroup size="sm" isAttached>
             <Button variant="link">
-              <IoSend />
+              <FiPaperclip />
             </Button>
             <Button variant="link">
-              <FiPaperclip />
+              <IoSend />
             </Button>
           </ButtonGroup>
         </InputRightElement>
@@ -71,7 +71,9 @@ const Bottombar = () => {
 };
 const ChatSender = (props) => {
   return (
-    <>
+
+    <Flex direction="row" ml={0} >
+    <Avatar name='Dan Abrahmov' src='https://bit.ly/dan-abramov' size="xs" mt={4} mr={1}/>
       <Flex
         bg="#FFFFFF"
         w="fit-content"
@@ -81,10 +83,10 @@ const ChatSender = (props) => {
         m={3}
         ml={0}
         alignSelf="start"
-      >
+      > 
         <Text>{props.chats[0].message}</Text>
       </Flex>
-    </>
+    </Flex>
   );
 };
 const ChatReceiver = (props) => {
@@ -96,8 +98,9 @@ const ChatReceiver = (props) => {
         minWidth={50}
         borderRadius="lg"
         p={3}
-        ml={10}
-        mr={0}
+        ml={9}
+        mr={1}
+        mb={3}
         alignSelf="end"
       >
         <Text color="#FFFFFF">{props.chats[0].message}</Text>
@@ -143,6 +146,7 @@ const ChatArea = () => {
             >
               <ChatSender {...data} />
               <ChatReceiver {...data} />
+              <ChatSender {...data} />
             </Flex>
             <Bottombar />
           </Flex>
