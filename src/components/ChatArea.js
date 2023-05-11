@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { IoSend } from "react-icons/io5";
+import { FiPaperclip } from "react-icons/fi";
 import { useState, useEffect, Fragment } from "react";
 
 const Topbar = () => {
@@ -34,7 +35,7 @@ const Topbar = () => {
             </Text>
           </Text>
           <Text fontSize="md" color="#606060">
-            To{" "}
+            To
             <Text as="b" color="#141E0D">
               Sector 28
             </Text>
@@ -54,18 +55,14 @@ const Bottombar = () => {
           autoComplete="off"
           bgColor="#FFFFFF"
         ></Input>
-        <InputRightElement  mr={6}>
-          {/* <Button variant="link">
-            <IoSend />
-          </Button> */}
-          <ButtonGroup size='sm' isAttached>
+        <InputRightElement mr={6}>
+          <ButtonGroup size="sm" isAttached>
             <Button variant="link">
-            <IoSend />
-          </Button>
+              <IoSend />
+            </Button>
             <Button variant="link">
-            <IoSend />
-          </Button>
-            
+              <FiPaperclip />
+            </Button>
           </ButtonGroup>
         </InputRightElement>
       </InputGroup>
