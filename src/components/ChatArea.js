@@ -10,6 +10,7 @@ import {
   InputGroup,
   InputRightElement,
   ButtonGroup,
+  Stack,
 } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { IoSend } from "react-icons/io5";
@@ -71,9 +72,14 @@ const Bottombar = () => {
 };
 const ChatSender = (props) => {
   return (
-
-    <Flex direction="row" ml={0} >
-    <Avatar name='Dan Abrahmov' src='https://bit.ly/dan-abramov' size="xs" mt={4} mr={1}/>
+    <Flex direction="row" ml={0}>
+      <Avatar
+        name="Dan Abrahmov"
+        src="https://bit.ly/dan-abramov"
+        size="xs"
+        mt={4}
+        mr={1}
+      />
       <Flex
         bg="#FFFFFF"
         w="fit-content"
@@ -83,7 +89,7 @@ const ChatSender = (props) => {
         m={3}
         ml={0}
         alignSelf="start"
-      > 
+      >
         <Text>{props.chats[0].message}</Text>
       </Flex>
     </Flex>
@@ -108,6 +114,37 @@ const ChatReceiver = (props) => {
     </>
   );
 };
+const DateTime = () => {
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  const d = new Date();
+  let month = months[d.getMonth()];
+  let year=d.getFullYear();
+  let day=d.getDay();
+  return (
+    <Flex alignItems="center" gap={2}>
+      <Divider orientation="horizontal" />
+      <Text size="sm" sx={{ whiteSpace: "nowrap" }}>
+        {day} {month}{year}
+      </Text>
+      <Divider orientation="horizontal" />
+    </Flex>
+  );
+};
+
 const ChatArea = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -133,7 +170,12 @@ const ChatArea = () => {
         <Flex h="100vh" bgColor="#FAF9F4">
           <Flex flex={1} direction="column">
             <Topbar />
-            <Divider orientation="horizontal" />
+            <Stack direction="column" spacing="80px">
+              <Divider orientation="horizontal" />
+
+              <DateTime />
+            </Stack>
+
             <Flex
               flex={1}
               direction="column"
@@ -146,6 +188,9 @@ const ChatArea = () => {
             >
               <ChatSender {...data} />
               <ChatReceiver {...data} />
+              <ChatSender {...data} />
+              <ChatSender {...data} />
+              <ChatSender {...data} />
               <ChatSender {...data} />
             </Flex>
             <Bottombar />
